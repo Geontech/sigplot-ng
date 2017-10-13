@@ -1,0 +1,29 @@
+{
+  "name": "sigplot-ng",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GeonTech/sigplot-ng"
+  },
+  "author": {
+    "name": "Thomas Goodwin",
+    "email": "btgoodwin@geontech.com"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GeonTech/sigplot-ng/issues"
+  },
+  "main": "sigplot-ng.umd.js",
+  "module": "sigplot-ng.js",
+  "jsnext:main": "sigplot-ng.js",
+  "typings": "sigplot-ng.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "sigplot-ts": "^0.1.2",
+    "zone.js": "^0.8.4"
+  }
+}
