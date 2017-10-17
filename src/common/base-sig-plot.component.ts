@@ -7,9 +7,7 @@ import * as core from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
-import { BasePlot, IPlotColors, AxisSettings } from 'sigplot-ts';
-
-import { PlotData } from './plot-data';
+import { BasePlot, IPlotColors, AxisSettings, PlotData } from 'sigplot-ts';
 
 export const BASE_SIG_PLOT_COMPONENT_STYLES = [`:host { display: block }`];
 export const BASE_SIG_PLOT_COMPONENT_TEMPLATE = `<!-- SigPlot -->`;

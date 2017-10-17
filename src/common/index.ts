@@ -4,5 +4,4 @@
  *
  * Common module for components
  */
-export { PlotData } from './plot-data';
 export * from './base-sig-plot.component';

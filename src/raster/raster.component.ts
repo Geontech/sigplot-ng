@@ -12,6 +12,7 @@ import {
     IColorMap,
     ConstructorOptions,
     RasterPlot,
+    RasterPlotData,
     Mc,
     Units
 } from 'sigplot-ts';
@@ -19,8 +20,7 @@ import {
 import {
     BaseSigPlotComponent,
     BASE_SIG_PLOT_COMPONENT_STYLES,
-    BASE_SIG_PLOT_COMPONENT_TEMPLATE,
-    PlotData,
+    BASE_SIG_PLOT_COMPONENT_TEMPLATE
 } from '../common/index';
 
 /**
@@ -79,7 +79,7 @@ export class RasterComponent extends BaseSigPlotComponent<RasterPlot> {
         this.plot = new RasterPlot(this.plotRef, options);
     }
 
-    handleData(pd: PlotData) {
+    handleData(pd: RasterPlotData) {
         // If the units are set, update the plot's related axis units label.
         // Then push the data, settings.
         if (pd.xAxis !== undefined && pd.xAxis.units !== undefined) {
@@ -88,6 +88,6 @@ export class RasterComponent extends BaseSigPlotComponent<RasterPlot> {
         if (pd.yAxis !== undefined && pd.yAxis.units !== undefined) {
             this.plot.ylab = pd.yAxis.units;
         }
-        this.plot.push(pd.buffer, pd.dataSize, pd.dataType, pd.xAxis, pd.yAxis, pd.signalId);
+        this.plot.push(pd);
     }
 }

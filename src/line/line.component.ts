@@ -14,14 +14,14 @@ import {
     IPlotColors,
     ConstructorOptions,
     LinePlot,
-    Units
+    Units,
+    LinePlotData
 } from 'sigplot-ts';
 
 import {
     BaseSigPlotComponent,
     BASE_SIG_PLOT_COMPONENT_STYLES,
     BASE_SIG_PLOT_COMPONENT_TEMPLATE,
-    PlotData,
 } from '../common/index';
 
 import { HighlightCommand } from './highlight-command';
@@ -93,15 +93,15 @@ export class LineComponent extends BaseSigPlotComponent<LinePlot> {
 
     /**
      * Data handler method that forwards the data to the underlying plot instance.
-     * @param pd The PlotData to plot.
+     * @param pd The LinePlotData to plot.
      */
-    handleData(pd: PlotData) {
+    handleData(pd: LinePlotData) {
         // If the xAxis units are set, update the plot's x-axis units label.
         // Then push the data, settings.
         if (pd.xAxis !== undefined && pd.xAxis.units !== undefined) {
             this.plot.xlab = pd.xAxis.units;
         }
-        this.plot.push(pd.buffer, pd.dataSize, pd.dataType, pd.xAxis, pd.signalId);
+        this.plot.push(pd);
     }
 
     /**
