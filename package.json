@@ -1,6 +1,6 @@
 {
   "name": "sigplot-ng",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "scripts": {
     "build": "gulp build",
     "build:watch": "gulp",
@@ -11,7 +11,6 @@
     "version": "npm run version:set && npm run version:add",
     "version:set": "sed -i -E 's/(\"version\":[[:space:]]*\").+(\")/\\1'$npm_package_version'\\2/g' src/package.json",
     "version:add": "git add src/package.json",
-    "version-test": "echo $npm_package_version",
     "dist": "cd dist && npm publish",
     "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
     "test": "tsc && karma start"
