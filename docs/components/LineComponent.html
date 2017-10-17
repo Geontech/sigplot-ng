@@ -135,9 +135,6 @@
                                 <li class="link">
                                     <a href="../interfaces/HighlightCommand.html" >HighlightCommand</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../interfaces/PlotData.html" >PlotData</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -292,9 +289,6 @@
                    >
                                        <li class="link">
                                            <a href="../interfaces/HighlightCommand.html" >HighlightCommand</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../interfaces/PlotData.html" >PlotData</a>
                                        </li>
                                </ul>
                            </li>
@@ -600,7 +594,7 @@ on-screen button.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-    <code>handleData(pd: <a href="../interfaces/PlotData.html">PlotData</a>)</code>
+    <code>handleData(pd: LinePlotData)</code>
                         </td>
                     </tr>
     
@@ -631,11 +625,11 @@ on-screen button.</p>
                                                     <tr>
                                                       <td>pd</td>
                                                       <td>
-                                                              <code><a href="../interfaces/PlotData.html" target="_self" >PlotData</a></code>
+                                                              <code>LinePlotData</code>
                                                       </td>
                                                       <td>
                                                       </td>
-                                                      <td><p>The PlotData to plot.</p>
+                                                      <td><p>The LinePlotData to plot.</p>
     </td>
                                                     </tr>
                                             </tbody>
@@ -774,14 +768,14 @@ import {
     IPlotColors,
     ConstructorOptions,
     LinePlot,
-    Units
+    Units,
+    LinePlotData
 } from &#x27;sigplot-ts&#x27;;
 
 import {
     BaseSigPlotComponent,
     BASE_SIG_PLOT_COMPONENT_STYLES,
     BASE_SIG_PLOT_COMPONENT_TEMPLATE,
-    PlotData,
 } from &#x27;../common/index&#x27;;
 
 import { HighlightCommand } from &#x27;./highlight-command&#x27;;
@@ -853,15 +847,15 @@ export class LineComponent extends BaseSigPlotComponent&lt;LinePlot&gt; {
 
     /**
      * Data handler method that forwards the data to the underlying plot instance.
-     * @param pd The PlotData to plot.
+     * @param pd The LinePlotData to plot.
      */
-    handleData(pd: PlotData) {
+    handleData(pd: LinePlotData) {
         // If the xAxis units are set, update the plot&#x27;s x-axis units label.
         // Then push the data, settings.
         if (pd.xAxis !&#x3D;&#x3D; undefined &amp;&amp; pd.xAxis.units !&#x3D;&#x3D; undefined) {
             this.plot.xlab &#x3D; pd.xAxis.units;
         }
-        this.plot.push(pd.buffer, pd.dataSize, pd.dataType, pd.xAxis, pd.signalId);
+        this.plot.push(pd);
     }
 
     /**

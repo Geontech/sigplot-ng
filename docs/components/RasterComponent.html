@@ -135,9 +135,6 @@
                                 <li class="link">
                                     <a href="../interfaces/HighlightCommand.html" >HighlightCommand</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../interfaces/PlotData.html" >PlotData</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -292,9 +289,6 @@
                    >
                                        <li class="link">
                                            <a href="../interfaces/HighlightCommand.html" >HighlightCommand</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../interfaces/PlotData.html" >PlotData</a>
                                        </li>
                                </ul>
                            </li>
@@ -577,7 +571,7 @@ color map, or your own using the IColorMap interface.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-    <code>handleData(pd: <a href="../interfaces/PlotData.html">PlotData</a>)</code>
+    <code>handleData(pd: RasterPlotData)</code>
                         </td>
                     </tr>
     
@@ -606,7 +600,7 @@ color map, or your own using the IColorMap interface.</p>
                                                     <tr>
                                                       <td>pd</td>
                                                       <td>
-                                                              <code><a href="../interfaces/PlotData.html" target="_self" >PlotData</a></code>
+                                                              <code>RasterPlotData</code>
                                                       </td>
                                                       <td>
                                                       </td>
@@ -643,6 +637,7 @@ import {
     IColorMap,
     ConstructorOptions,
     RasterPlot,
+    RasterPlotData,
     Mc,
     Units
 } from &#x27;sigplot-ts&#x27;;
@@ -650,8 +645,7 @@ import {
 import {
     BaseSigPlotComponent,
     BASE_SIG_PLOT_COMPONENT_STYLES,
-    BASE_SIG_PLOT_COMPONENT_TEMPLATE,
-    PlotData,
+    BASE_SIG_PLOT_COMPONENT_TEMPLATE
 } from &#x27;../common/index&#x27;;
 
 /**
@@ -710,7 +704,7 @@ export class RasterComponent extends BaseSigPlotComponent&lt;RasterPlot&gt; {
         this.plot &#x3D; new RasterPlot(this.plotRef, options);
     }
 
-    handleData(pd: PlotData) {
+    handleData(pd: RasterPlotData) {
         // If the units are set, update the plot&#x27;s related axis units label.
         // Then push the data, settings.
         if (pd.xAxis !&#x3D;&#x3D; undefined &amp;&amp; pd.xAxis.units !&#x3D;&#x3D; undefined) {
@@ -719,7 +713,7 @@ export class RasterComponent extends BaseSigPlotComponent&lt;RasterPlot&gt; {
         if (pd.yAxis !&#x3D;&#x3D; undefined &amp;&amp; pd.yAxis.units !&#x3D;&#x3D; undefined) {
             this.plot.ylab &#x3D; pd.yAxis.units;
         }
-        this.plot.push(pd.buffer, pd.dataSize, pd.dataType, pd.xAxis, pd.yAxis, pd.signalId);
+        this.plot.push(pd);
     }
 }
 </code></pre>

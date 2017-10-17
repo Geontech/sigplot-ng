@@ -135,9 +135,6 @@
                                 <li class="link">
                                     <a href="./interfaces/HighlightCommand.html" >HighlightCommand</a>
                                 </li>
-                                <li class="link">
-                                    <a href="./interfaces/PlotData.html" >PlotData</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -293,9 +290,6 @@
                                        <li class="link">
                                            <a href="./interfaces/HighlightCommand.html" >HighlightCommand</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="./interfaces/PlotData.html" >PlotData</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -334,20 +328,46 @@
                    <div class="content-data">
 
 <h1 id="angular-components-for-sigplot">Angular Components for SigPlot</h1>
+<p>This package contains Angular Components that integrate with <a href="https://github.com/LGSInnovations/sigplot">SigPlot</a> by way of <a href="https://github.com/GeonTech/sigplot-ts">sigplot-ts</a>.  </p>
 <h2 id="installation">Installation</h2>
 <p>To install this library, run:</p>
 <pre class="line-numbers"><code class="language-bash">$ npm install sigplot-ng --save</code></pre><h2 id="usage">Usage</h2>
 <p>In an Angular module where you would like to use the components, import the module:</p>
 <pre class="line-numbers"><code class="language-typescript">// Import the library
-import { SigPlotModule } from &#39;sigplot-ng&#39;;
+import { SigPlotComponentModule } from &#39;sigplot-ng&#39;;
 
 &#64;NgModule({
   imports: [
     // ...other imports
-    SigPlotModule
+    SigPlotComponentModule
   ],
 })
-export class YourModule {}</code></pre><p>You will then have access to the components defined in this module such as the LinePlot and RasterPlot.</p>
+export class YourModule {}</code></pre><p>You will then have access to the components, directives, etc. defined in this module.</p>
+<h2 id="available-components">Available Components</h2>
+<p>The current list of components is described in the following table.</p>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Selector</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LineComponent</td>
+<td>sigplot-line</td>
+<td>A 1D line plot suitable for signals, FFTs, etc.</td>
+</tr>
+<tr>
+<td>RasterComponent</td>
+<td>sigplot-raster</td>
+<td>A 2D (falling) raster plot (a.k.a., waterfall)</td>
+</tr>
+</tbody>
+</table>
+<p>Each of these components inherits from the BaseSigPlot Component, which provides basic data ingress and X-Axis controls as well as the instantiation of the associated plot controller class from <a href="https://github.com/GeonTech/sigplot-ts">sigplot-ts</a>.</p>
+<p>Please see the associated documentation (in <code>docs</code>) for more details on usage and parameterization.</p>
 
 
 
