@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 
 import { CHILD_MODULES } from './modules';
 
-export * from './common/index';
+export * from './common/common.module';
 export * from './line/line-component.module';
 export * from './raster/raster-component.module';
 

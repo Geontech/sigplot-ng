@@ -22,7 +22,7 @@ import {
     BaseSigPlotComponent,
     BASE_SIG_PLOT_COMPONENT_STYLES,
     BASE_SIG_PLOT_COMPONENT_TEMPLATE,
-} from '../common/index';
+} from '../common/common.module';
 
 import { HighlightCommand } from './highlight-command';
 import { HighlightAction } from './highlight-action.enum';

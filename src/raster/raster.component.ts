@@ -21,7 +21,7 @@ import {
     BaseSigPlotComponent,
     BASE_SIG_PLOT_COMPONENT_STYLES,
     BASE_SIG_PLOT_COMPONENT_TEMPLATE
-} from '../common/index';
+} from '../common/common.module';
 
 /**
  * The RasterComponent implements the RasterPlot controller by extending

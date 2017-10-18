@@ -13,18 +13,15 @@ export const BASE_SIG_PLOT_COMPONENT_STYLES = [`:host { display: block }`];
 export const BASE_SIG_PLOT_COMPONENT_TEMPLATE = `<!-- SigPlot -->`;
 
 /**
- * The BaseSigPlot Component provides a basic, abstract class with interfaces
+ * The BaseSigPlot Component provides a basic class with interfaces
  * for data ingress, foreground/background color control, and x-Axis settings.
- * 
- * NOTE: Ensure your child class also implements DoCheck from angular core so 
- * that the ngDoCheck method gets called.
- * @abstract @class 
+ * @class 
  */
 @core.Component({
     template: BASE_SIG_PLOT_COMPONENT_TEMPLATE,
     styles:   BASE_SIG_PLOT_COMPONENT_STYLES
 })
-export abstract class BaseSigPlotComponent<T extends BasePlot>
+export class BaseSigPlotComponent<T extends BasePlot>
     implements core.DoCheck, core.OnDestroy {
 
         /** Data Input interface */
@@ -106,9 +103,11 @@ export abstract class BaseSigPlotComponent<T extends BasePlot>
 
         /**
          * Handle the incoming plot data structure.
-         * @abstract
+         * Derived classes should implement this method.
          */
-        abstract handleData(pd: PlotData): void;
+        handleData(pd: PlotData): void {
+            console.log('Received data');
+        };
 
         /**
          * Unsubscribe from the data subscription to avoid possible memory leaks.
