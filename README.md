@@ -16,12 +16,12 @@ In an Angular module where you would like to use the components, import the modu
 
 ```typescript
 // Import the library
-import { SigPlotComponentModule } from 'sigplot-ng';
+import { SigPlotComponentsModule } from 'sigplot-ng';
 
 @NgModule({
   imports: [
     // ...other imports
-    SigPlotComponentModule
+    SigPlotComponentsModule
   ],
 })
 export class YourModule {}
