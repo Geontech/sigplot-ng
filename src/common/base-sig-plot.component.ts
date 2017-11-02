@@ -3,11 +3,18 @@
  * Company: Geon Technologies, LLC
  */
 
-import * as core from '@angular/core';
+import {
+    Component,
+    DoCheck,
+    OnDestroy,
+    Input,
+    Renderer2,
+    ElementRef
+} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
-import { BasePlot, IPlotColors, AxisSettings, PlotData } from 'sigplot-ts';
+import { BasePlot, IPlotColors, AxisSettings, PlotData, Units } from 'sigplot-ts';
 
 export const BASE_SIG_PLOT_COMPONENT_STYLES = [`:host { display: block }`];
 export const BASE_SIG_PLOT_COMPONENT_TEMPLATE = `<!-- SigPlot -->`;
@@ -17,18 +24,18 @@ export const BASE_SIG_PLOT_COMPONENT_TEMPLATE = `<!-- SigPlot -->`;
  * for data ingress, foreground/background color control, and x-Axis settings.
  * @class 
  */
-@core.Component({
+@Component({
     template: BASE_SIG_PLOT_COMPONENT_TEMPLATE,
     styles:   BASE_SIG_PLOT_COMPONENT_STYLES
 })
 export class BaseSigPlotComponent<T extends BasePlot>
-    implements core.DoCheck, core.OnDestroy {
+    implements DoCheck, OnDestroy {
 
         /** Data Input interface */
-        @core.Input() set data(d: Observable<PlotData>) {
+        @Input() set data$(d$: Observable<PlotData>) {
             this.clearDataSubscription();
-            if (d !== undefined) {
-                this._dataSub = d.subscribe((pd) => this.handleData(pd));
+            if (d$ !== undefined) {
+                this._dataSub = d$.subscribe((pd) => this.handleData(pd));
             }
         }
 
@@ -36,10 +43,7 @@ export class BaseSigPlotComponent<T extends BasePlot>
          * Controls the foreground and background colors of the plot.  The
          * foreground color describes the labels, line markers, etc.
          */
-        @core.Input() set colors(c: IPlotColors) {
-            if (this.plot === undefined) {
-                return;
-            }
+        @Input() set colors(c: IPlotColors) {
             this.plot.settings.colors = c;
             this.plot.checkSettings();
         }
@@ -47,10 +51,7 @@ export class BaseSigPlotComponent<T extends BasePlot>
         /**
          * X-Axis settings control.
          */
-        @core.Input() set xAxisSettings(ax: AxisSettings) {
-            if (this.plot === undefined) {
-                return;
-            }
+        @Input() set xAxisSettings(ax: AxisSettings) {
             this.plot.settings.xinv = ax.inv;
             this.plot.settings.xmax = ax.max;
             this.plot.settings.xmin = ax.min;
@@ -58,16 +59,58 @@ export class BaseSigPlotComponent<T extends BasePlot>
             this.plot.checkSettings();
         }
 
+        /**
+         * Configures the Y-Axis' settings
+         */
+        @Input() set yAxisSettings(ay: AxisSettings) {
+            this.plot.settings.yinv = ay.inv;
+            this.plot.settings.ymax = ay.max;
+            this.plot.settings.ymin = ay.min;
+            this.plot.settings.autoy = ay.autoScale;
+            this.plot.checkSettings();
+        }
+
+        /**
+         * X-axis Units.  This will update the label for the axis.
+         */
+        @Input() set xAxisUnits(units: Units) {
+            this.plot.xlab = units;
+        }
+
+        /**
+         * Y-axis Units.  This will update the label for the axis.
+         */
+        @Input() set yAxisUnits(units: Units) {
+            this.plot.xlab = units;
+        }
+
+        /**
+         * Toggle for the legend panel without touching the on-screen button.
+         */
+        @Input() set legend(legend: boolean) {
+            legend = legend || false; // default false if undefined.
+            this.plot.settings.legend = legend;
+            this.plot.checkSettings();
+        }
+
         /** Plot Controller Reference */
-        plot:    T;
+        plot: T;
 
         /** DOM reference associated with the plot controller */
         plotRef: any;
 
+        /** DOM renderer service */
+        protected _renderer: Renderer2;
+
+        /** This Component's element reference */
+        protected _el: ElementRef;
+
         /** Data subscription */
         private _dataSub: Subscription;
 
-        constructor(protected _renderer: core.Renderer2, protected _el: core.ElementRef) {
+        constructor(renderer: Renderer2, el: ElementRef) {
+            this._renderer = renderer;
+            this._el = el;
             this.plotRef = this._renderer.createElement('div');
             this._renderer.appendChild(this._el.nativeElement, this.plotRef);
         }
