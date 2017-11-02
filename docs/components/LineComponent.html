@@ -48,8 +48,8 @@
                                   <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                 </li>
                                 <li class="link">
-                                    <a href="./license.html"
-                                        >
+                                        <a href="../license.html"
+                                    >
                                         <span class="fa fa-file-text-o"></span>LICENSE
                                     </a>
                                 </li>
@@ -97,6 +97,9 @@
                                 id="xs-components-links"
                             >
                                 <li class="link">
+                                    <a href="../components/BaseSigPlotComponent.html" >BaseSigPlotComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/LineComponent.html"  data-type="entity-link" class="active" >LineComponent</a>
                                 </li>
                                 <li class="link">
@@ -106,22 +109,6 @@
                     </li>
             
             
-                    <li class="chapter">
-                        <div class="simple menu-toggler" data-toggle="collapse"
-                                data-target="#xs-classes-links"
-                            >
-                            <span class="fa fa-file-code-o"></span>
-                            <span>Classes</span>
-                            <span class="fa fa-angle-down"></span>
-                        </div>
-                        <ul class="links collapse "
-                                id="xs-classes-links"
-                            >
-                                <li class="link">
-                                    <a href="../classes/BaseSigPlotComponent.html" >BaseSigPlotComponent</a>
-                                </li>
-                        </ul>
-                    </li>
             
             
                     <li class="chapter">
@@ -155,6 +142,9 @@
                             >
                                 <li class="link">
                                   <a href="../miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
+                                </li>
+                                <li class="link">
+                                  <a href="../miscellaneous/functions.html" data-type="entity-link" >Functions</a>
                                 </li>
                                 <li class="link">
                                   <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
@@ -206,8 +196,8 @@
                                          <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                        </li>
                                        <li class="link">
-                                           <a href="./license.html"
-                                               >
+                                               <a href="../license.html"
+                                           >
                                                <span class="fa fa-file-text-o"></span>LICENSE
                                            </a>
                                        </li>
@@ -255,6 +245,9 @@
                                        id="components-links"
                    >
                                        <li class="link">
+                                           <a href="../components/BaseSigPlotComponent.html" >BaseSigPlotComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/LineComponent.html"  data-type="entity-link" class="active" >LineComponent</a>
                                        </li>
                                        <li class="link">
@@ -264,22 +257,6 @@
                            </li>
                    
                    
-                           <li class="chapter">
-                               <div class="simple menu-toggler" data-toggle="collapse"
-                                       data-target="#classes-links"
-                   >
-                                   <span class="fa fa-file-code-o"></span>
-                                   <span>Classes</span>
-                                   <span class="fa fa-angle-down"></span>
-                               </div>
-                               <ul class="links collapse "
-                                       id="classes-links"
-                   >
-                                       <li class="link">
-                                           <a href="../classes/BaseSigPlotComponent.html" >BaseSigPlotComponent</a>
-                                       </li>
-                               </ul>
-                           </li>
                    
                    
                            <li class="chapter">
@@ -313,6 +290,9 @@
                    >
                                        <li class="link">
                                          <a href="../miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="../miscellaneous/functions.html" data-type="entity-link" >Functions</a>
                                        </li>
                                        <li class="link">
                                          <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
@@ -377,7 +357,7 @@ LinePlot.  The plot supports multi-line plotting with legend.</p>
         <h3>Extends</h3>
     </p>
     <p class="comment">
-            <code><a href="../classes/BaseSigPlotComponent.html" target="_self" >BaseSigPlotComponent</a></code>
+            <code><a href="../components/BaseSigPlotComponent.html" target="_self" >BaseSigPlotComponent</a></code>
     </p>
 
 
@@ -409,15 +389,7 @@ LinePlot.  The plot supports multi-line plotting with legend.</p>
             </tr>
 
 
-            <tr>
-                <td class="col-md-3">styles</td>
-                <td class="col-md-9"><code>BASE_SIG_PLOT_COMPONENT_STYLES</code></td>
-            </tr>
 
-            <tr>
-                <td class="col-md-3">template</td>
-                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">BASE_SIG_PLOT_COMPONENT_TEMPLATE</code></pre></td>
-            </tr>
 
 
 
@@ -471,8 +443,19 @@ LinePlot.  The plot supports multi-line plotting with legend.</p>
                             <li>
                                 <a href="#highlight">highlight</a>
                             </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Accessors</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
                             <li>
-                                <a href="#showLegend">showLegend</a>
+                                 <a href="#highlight">highlight</a>
                             </li>
                         </ul>
                     </td>
@@ -487,12 +470,12 @@ LinePlot.  The plot supports multi-line plotting with legend.</p>
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(_renderer: <a href="https://angular.io/docs/ts/latest/api/core/index/Renderer2-class.html" target="_blank">Renderer2</a>, _el: <a href="https://angular.io/docs/ts/latest/api/core/index/ElementRef-class.html" target="_blank">ElementRef</a>)</code>
+                            <code>constructor(renderer: Renderer2, el: ElementRef, options: ConstructorOptions)</code>
                         </td>
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/line/line.component.ts:69</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/line/line.component.ts:62</a></div>
                                 </td>
                             </tr>
     
@@ -511,9 +494,9 @@ LinePlot.  The plot supports multi-line plotting with legend.</p>
                                             </thead>
                                             <tbody>
                                                     <tr>
-                                                      <td>_renderer</td>
+                                                      <td>renderer</td>
                                                       <td>
-                                                                <code><a href="https://angular.io/docs/ts/latest/api/core/index/Renderer2-class.html" target="_blank" >Renderer2</a></code>
+                                                                <code>Renderer2</code>
                                                       </td>
                                                       <td>
                                                       </td>
@@ -521,14 +504,23 @@ LinePlot.  The plot supports multi-line plotting with legend.</p>
     </td>
                                                     </tr>
                                                     <tr>
-                                                      <td>_el</td>
+                                                      <td>el</td>
                                                       <td>
-                                                                <code><a href="https://angular.io/docs/ts/latest/api/core/index/ElementRef-class.html" target="_blank" >ElementRef</a></code>
+                                                                <code>ElementRef</code>
                                                       </td>
                                                       <td>
                                                       </td>
                                                       <td><p>The Angular element reference of this component.</p>
     </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>options</td>
+                                                      <td>
+                                                                <code>ConstructorOptions</code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
                                                     </tr>
                                             </tbody>
                                         </table>
@@ -555,27 +547,7 @@ LinePlot.  The plot supports multi-line plotting with legend.</p>
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/line/line.component.ts:46</a></div>
-                                </td>
-                            </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-2">
-                            <a name="showLegend"></a>
-                            <code>showLegend</code>
-                        </td>
-                        <td class="col-md-10">
-                            <div><p>Toggle for showing and hiding the legend panel without touching the
-on-screen button.</p>
-</div>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/line/line.component.ts:60</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/line/line.component.ts:51</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -607,7 +579,7 @@ on-screen button.</p>
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/line/line.component.ts:98</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/line/line.component.ts:83</a></div>
                                 </td>
                             </tr>
     
@@ -671,7 +643,7 @@ on-screen button.</p>
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">src/line/line.component.ts:111</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/line/line.component.ts:96</a></div>
                                 </td>
                             </tr>
     
@@ -747,7 +719,7 @@ on-screen button.</p>
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/line/line.component.ts:69</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/line/line.component.ts:62</a></div>
                                 </td>
                             </tr>
     
@@ -761,20 +733,88 @@ on-screen button.</p>
                 </tbody>
             </table>
     </section>
+
+    <section>
+        <h3 id="accessors">
+            Accessors
+        </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="highlight"></a>
+                            <span class="name"><b>highlight</b><a href="#highlight"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+    
+    
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="accessor"><b>set</b><code>highlight(h: )</code></span>
+                        </td>
+                    </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/line/line.component.ts:51</a></div>
+                                    </td>
+                                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-description"><p>Highlight command interface for dynamically highlighting the plot.</p>
+    </div>
+    
+                                    <div class="io-description">
+                                            <b>Parameters :</b>
+                                            <table class="params">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Name</td>
+                                                        <td>Type</td>
+                                                        <td>Optional</td>
+                                                        <td>Description</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                        <tr>
+                                                          <td>h</td>
+                                                          <td>
+                                                          </td>
+                                                          <td>
+                                                          </td>
+                                                          <td></td>
+                                                        </tr>
+                                                </tbody>
+                                            </table>
+                                    </div>
+                                    <div>
+                                    </div>
+                                    <div class="io-description">
+                                        <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                    </div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+    </section>
 </div>
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component, Input, Renderer2, ElementRef } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import {
+    Component,
+    Input,
+    Renderer2,
+    ElementRef,
+    Optional,
+    Inject
+} from &#x27;@angular/core&#x27;;
 import { Observable } from &#x27;rxjs/Observable&#x27;;
 import { Subscription } from &#x27;rxjs/Subscription&#x27;;
 
 import {
-    AxisSettings,
-    IPlotColors,
     ConstructorOptions,
     LinePlot,
-    Units,
     LinePlotData
 } from &#x27;sigplot-ts&#x27;;
 
@@ -786,6 +826,7 @@ import {
 
 import { HighlightCommand } from &#x27;./highlight-command&#x27;;
 import { HighlightAction } from &#x27;./highlight-action.enum&#x27;;
+import { defaultLineOptions, LINE_PLOT_OPTIONS } from &#x27;./line-options&#x27;;
 
 /**
  * The LineComponent implements the LinePlot and exposes a number of 
@@ -813,41 +854,21 @@ export class LineComponent extends BaseSigPlotComponent&lt;LinePlot&gt; {
         }
     }
 
-    /**
-     * Toggle for showing and hiding the legend panel without touching the
-     * on-screen button.
-     */
-    @Input() set showLegend(legend: boolean) {
-        if (this.plot &#x3D;&#x3D;&#x3D; undefined) {
-            return;
-        }
-        this.plot.settings.legend &#x3D; legend;
-        this.plot.checkSettings();
-    }
-
     /** Subscription for the highlight command interface */
     private _highlightSub: Subscription;
 
     /**
      * @constructor
-     * @param _renderer The Angular Renderer2 service for editing the DOM.
-     * @param _el The Angular element reference of this component.
+     * @param renderer The Angular Renderer2 service for editing the DOM.
+     * @param el The Angular element reference of this component.
      */
-    constructor(protected _renderer: Renderer2, protected _el: ElementRef) {
-        super(_renderer, _el);
-        /**
-         * Setup the initial options for the line plot.
-         * See comments for what these flags &#x27;do&#x27; for a type 1000 plot, as they
-         * differ from a type 2000.
-         */
-        const options &#x3D; new ConstructorOptions();
-        options.pan &#x3D; true;          // 1.\   Show specs w/o glitching or 
-        options.specs &#x3D; true;        // 2. -&gt; disappearing, provide legend
-        options.show_readout &#x3D; true; // 3./   toggle button.
-        options.grid &#x3D; true;         // Show the grid
-        options.legend &#x3D; true;       // Show legend initially
-        options.show_x_axis &#x3D; true;  // X Label in title region
-        options.show_y_axis &#x3D; true;  // Y Label in title region
+    constructor(
+        renderer: Renderer2,
+        el: ElementRef,
+        @Optional() @Inject(LINE_PLOT_OPTIONS) options: ConstructorOptions
+    ) {
+        super(renderer, el);
+        options &#x3D; options || defaultLineOptions();
         this.plot &#x3D; new LinePlot(this.plotRef, options);
     }
 
@@ -911,8 +932,8 @@ export class LineComponent extends BaseSigPlotComponent&lt;LinePlot&gt; {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div>BASE_SIG_PLOT_COMPONENT_TEMPLATE</div>'
-    var COMPONENTS = [{'name': 'LineComponent', 'selector': 'sigplot-line'},{'name': 'RasterComponent', 'selector': 'sigplot-raster'}];
+        var COMPONENT_TEMPLATE = '<div></div>'
+    var COMPONENTS = [{'name': 'BaseSigPlotComponent', 'selector': ''},{'name': 'LineComponent', 'selector': 'sigplot-line'},{'name': 'RasterComponent', 'selector': 'sigplot-raster'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LineComponent'};
 </script>

@@ -48,8 +48,8 @@
                                   <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                 </li>
                                 <li class="link">
-                                    <a href="./license.html"
-                                        >
+                                        <a href="../license.html"
+                                    >
                                         <span class="fa fa-file-text-o"></span>LICENSE
                                     </a>
                                 </li>
@@ -97,6 +97,9 @@
                                 id="xs-components-links"
                             >
                                 <li class="link">
+                                    <a href="../components/BaseSigPlotComponent.html" >BaseSigPlotComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/LineComponent.html" >LineComponent</a>
                                 </li>
                                 <li class="link">
@@ -106,22 +109,6 @@
                     </li>
             
             
-                    <li class="chapter">
-                        <div class="simple menu-toggler" data-toggle="collapse"
-                                data-target="#xs-classes-links"
-                            >
-                            <span class="fa fa-file-code-o"></span>
-                            <span>Classes</span>
-                            <span class="fa fa-angle-down"></span>
-                        </div>
-                        <ul class="links collapse "
-                                id="xs-classes-links"
-                            >
-                                <li class="link">
-                                    <a href="../classes/BaseSigPlotComponent.html" >BaseSigPlotComponent</a>
-                                </li>
-                        </ul>
-                    </li>
             
             
                     <li class="chapter">
@@ -155,6 +142,9 @@
                             >
                                 <li class="link">
                                   <a href="../miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
+                                </li>
+                                <li class="link">
+                                  <a href="../miscellaneous/functions.html" data-type="entity-link" >Functions</a>
                                 </li>
                                 <li class="link">
                                   <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
@@ -206,8 +196,8 @@
                                          <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                        </li>
                                        <li class="link">
-                                           <a href="./license.html"
-                                               >
+                                               <a href="../license.html"
+                                           >
                                                <span class="fa fa-file-text-o"></span>LICENSE
                                            </a>
                                        </li>
@@ -255,6 +245,9 @@
                                        id="components-links"
                    >
                                        <li class="link">
+                                           <a href="../components/BaseSigPlotComponent.html" >BaseSigPlotComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/LineComponent.html" >LineComponent</a>
                                        </li>
                                        <li class="link">
@@ -264,22 +257,6 @@
                            </li>
                    
                    
-                           <li class="chapter">
-                               <div class="simple menu-toggler" data-toggle="collapse"
-                                       data-target="#classes-links"
-                   >
-                                   <span class="fa fa-file-code-o"></span>
-                                   <span>Classes</span>
-                                   <span class="fa fa-angle-down"></span>
-                               </div>
-                               <ul class="links collapse "
-                                       id="classes-links"
-                   >
-                                       <li class="link">
-                                           <a href="../classes/BaseSigPlotComponent.html" >BaseSigPlotComponent</a>
-                                       </li>
-                               </ul>
-                           </li>
                    
                    
                            <li class="chapter">
@@ -313,6 +290,9 @@
                    >
                                        <li class="link">
                                          <a href="../miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="../miscellaneous/functions.html" data-type="entity-link" >Functions</a>
                                        </li>
                                        <li class="link">
                                          <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
@@ -377,7 +357,7 @@ the color map (cmap) and Y-Axis settings.</p>
         <h3>Extends</h3>
     </p>
     <p class="comment">
-            <code><a href="../classes/BaseSigPlotComponent.html" target="_self" >BaseSigPlotComponent</a></code>
+            <code><a href="../components/BaseSigPlotComponent.html" target="_self" >BaseSigPlotComponent</a></code>
     </p>
 
 
@@ -404,15 +384,7 @@ the color map (cmap) and Y-Axis settings.</p>
             </tr>
 
 
-            <tr>
-                <td class="col-md-3">styles</td>
-                <td class="col-md-9"><code>BASE_SIG_PLOT_COMPONENT_STYLES</code></td>
-            </tr>
 
-            <tr>
-                <td class="col-md-3">template</td>
-                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">BASE_SIG_PLOT_COMPONENT_TEMPLATE</code></pre></td>
-            </tr>
 
 
 
@@ -449,8 +421,19 @@ the color map (cmap) and Y-Axis settings.</p>
                             <li>
                                 <a href="#cmap">cmap</a>
                             </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Accessors</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
                             <li>
-                                <a href="#yAxisSettings">yAxisSettings</a>
+                                 <a href="#cmap">cmap</a>
                             </li>
                         </ul>
                     </td>
@@ -465,12 +448,12 @@ the color map (cmap) and Y-Axis settings.</p>
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(_renderer: <a href="https://angular.io/docs/ts/latest/api/core/index/Renderer2-class.html" target="_blank">Renderer2</a>, _el: <a href="https://angular.io/docs/ts/latest/api/core/index/ElementRef-class.html" target="_blank">ElementRef</a>)</code>
+                            <code>constructor(renderer: Renderer2, el: ElementRef, options: ConstructorOptions)</code>
                         </td>
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/raster/raster.component.ts:63</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/raster/raster.component.ts:54</a></div>
                                 </td>
                             </tr>
     
@@ -489,18 +472,27 @@ the color map (cmap) and Y-Axis settings.</p>
                                             </thead>
                                             <tbody>
                                                     <tr>
-                                                      <td>_renderer</td>
+                                                      <td>renderer</td>
                                                       <td>
-                                                                <code><a href="https://angular.io/docs/ts/latest/api/core/index/Renderer2-class.html" target="_blank" >Renderer2</a></code>
+                                                                <code>Renderer2</code>
                                                       </td>
                                                       <td>
                                                       </td>
                                                       <td></td>
                                                     </tr>
                                                     <tr>
-                                                      <td>_el</td>
+                                                      <td>el</td>
                                                       <td>
-                                                                <code><a href="https://angular.io/docs/ts/latest/api/core/index/ElementRef-class.html" target="_blank" >ElementRef</a></code>
+                                                                <code>ElementRef</code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>options</td>
+                                                      <td>
+                                                                <code>ConstructorOptions</code>
                                                       </td>
                                                       <td>
                                                       </td>
@@ -533,26 +525,7 @@ color map, or your own using the IColorMap interface.</p>
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/raster/raster.component.ts:43</a></div>
-                                </td>
-                            </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-2">
-                            <a name="yAxisSettings"></a>
-                            <code>yAxisSettings</code>
-                        </td>
-                        <td class="col-md-10">
-                            <div><p>Configures the Y-Axis&#39; settings</p>
-</div>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/raster/raster.component.ts:54</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/raster/raster.component.ts:48</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -584,7 +557,7 @@ color map, or your own using the IColorMap interface.</p>
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/raster/raster.component.ts:82</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/raster/raster.component.ts:66</a></div>
                                 </td>
                             </tr>
     
@@ -630,22 +603,91 @@ color map, or your own using the IColorMap interface.</p>
             </table>
     </section>
 
+
+    <section>
+        <h3 id="accessors">
+            Accessors
+        </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="cmap"></a>
+                            <span class="name"><b>cmap</b><a href="#cmap"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+    
+    
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="accessor"><b>set</b><code>cmap(c: )</code></span>
+                        </td>
+                    </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/raster/raster.component.ts:48</a></div>
+                                    </td>
+                                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-description"><p>The color map (gradient, usually) to use for drawing the data.  This can
+    be the string name or number (via the Mc enumeration) of a pre-existing
+    color map, or your own using the IColorMap interface.</p>
+    </div>
+    
+                                    <div class="io-description">
+                                            <b>Parameters :</b>
+                                            <table class="params">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Name</td>
+                                                        <td>Type</td>
+                                                        <td>Optional</td>
+                                                        <td>Description</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                        <tr>
+                                                          <td>c</td>
+                                                          <td>
+                                                          </td>
+                                                          <td>
+                                                          </td>
+                                                          <td></td>
+                                                        </tr>
+                                                </tbody>
+                                            </table>
+                                    </div>
+                                    <div>
+                                    </div>
+                                    <div class="io-description">
+                                        <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                    </div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+    </section>
 </div>
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component, Input, Renderer2, ElementRef } from &#x27;@angular/core&#x27;;
-import { Observable } from &#x27;rxjs/Observable&#x27;;
-import { Subscription } from &#x27;rxjs/Subscription&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import {
+    Component,
+    Input,
+    Renderer2,
+    ElementRef,
+    Optional,
+    Inject
+} from &#x27;@angular/core&#x27;;
 
 import {
-    AxisSettings,
     IColorMap,
     ConstructorOptions,
     RasterPlot,
     RasterPlotData,
-    Mc,
-    Units
+    Mc
 } from &#x27;sigplot-ts&#x27;;
 
 import {
@@ -653,6 +695,8 @@ import {
     BASE_SIG_PLOT_COMPONENT_STYLES,
     BASE_SIG_PLOT_COMPONENT_TEMPLATE
 } from &#x27;../common/common.module&#x27;;
+
+import { defaultRasterOptions, RASTER_PLOT_OPTIONS } from &#x27;./raster-options&#x27;;
 
 /**
  * The RasterComponent implements the RasterPlot controller by extending
@@ -679,34 +723,13 @@ export class RasterComponent extends BaseSigPlotComponent&lt;RasterPlot&gt; {
         this.plot.checkSettings();
     }
 
-    /**
-     * Configures the Y-Axis&#x27; settings
-     */
-    @Input() set yAxisSettings(ay: AxisSettings) {
-        if (this.plot &#x3D;&#x3D;&#x3D; undefined) {
-            return;
-        }
-        this.plot.settings.yinv &#x3D; ay.inv;
-        this.plot.settings.ymax &#x3D; ay.max;
-        this.plot.settings.ymin &#x3D; ay.min;
-        this.plot.settings.autoy &#x3D; ay.autoScale;
-        this.plot.checkSettings();
-    }
-
-    constructor(protected _renderer: Renderer2, protected _el: ElementRef) {
-        super(_renderer, _el);
-        /**
-         * Setup the initial options for a (falling) raster plot.
-         * See comments for what these flags &#x27;do&#x27; for a type 2000 plot, as they
-         * differ from type 1000.
-         */
-        let options &#x3D; new ConstructorOptions();
-        // Provides area for and enables x, y labels, axes w/ ticks, etc.
-        options.specs &#x3D; true;
-        // Shows scroll bars, specs panel, colorbar, legend button
-        options.pan &#x3D; true;
-        // Show legend initially with signal name.
-        options.legend &#x3D; true;
+    constructor(
+        renderer: Renderer2,
+        el: ElementRef,
+        @Optional() @Inject(RASTER_PLOT_OPTIONS) options: ConstructorOptions
+    ) {
+        super(renderer, el);
+        options &#x3D; options || defaultRasterOptions();
         this.plot &#x3D; new RasterPlot(this.plotRef, options);
     }
 
@@ -749,8 +772,8 @@ export class RasterComponent extends BaseSigPlotComponent&lt;RasterPlot&gt; {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div>BASE_SIG_PLOT_COMPONENT_TEMPLATE</div>'
-    var COMPONENTS = [{'name': 'LineComponent', 'selector': 'sigplot-line'},{'name': 'RasterComponent', 'selector': 'sigplot-raster'}];
+        var COMPONENT_TEMPLATE = '<div></div>'
+    var COMPONENTS = [{'name': 'BaseSigPlotComponent', 'selector': ''},{'name': 'LineComponent', 'selector': 'sigplot-line'},{'name': 'RasterComponent', 'selector': 'sigplot-raster'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'RasterComponent'};
 </script>

@@ -80,7 +80,7 @@
                                     <a href="../modules/RasterComponentModule.html" >RasterComponentModule</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../modules/SigPlotComponentsModule.html"  data-type="entity-link" class="active" >SigPlotComponentsModule</a>
+                                    <a href="../modules/SigPlotComponentsModule.html" >SigPlotComponentsModule</a>
                                 </li>
                         </ul>
                     </li>
@@ -144,7 +144,7 @@
                                   <a href="../miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
                                 </li>
                                 <li class="link">
-                                  <a href="../miscellaneous/functions.html" data-type="entity-link" >Functions</a>
+                                  <a href="../miscellaneous/functions.html" data-type="entity-link"  class="active" >Functions</a>
                                 </li>
                                 <li class="link">
                                   <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
@@ -228,7 +228,7 @@
                                            <a href="../modules/RasterComponentModule.html" >RasterComponentModule</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../modules/SigPlotComponentsModule.html"  data-type="entity-link" class="active" >SigPlotComponentsModule</a>
+                                           <a href="../modules/SigPlotComponentsModule.html" >SigPlotComponentsModule</a>
                                        </li>
                                </ul>
                            </li>
@@ -292,7 +292,7 @@
                                          <a href="../miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
                                        </li>
                                        <li class="link">
-                                         <a href="../miscellaneous/functions.html" data-type="entity-link" >Functions</a>
+                                         <a href="../miscellaneous/functions.html" data-type="entity-link"  class="active" >Functions</a>
                                        </li>
                                        <li class="link">
                                          <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
@@ -310,83 +310,85 @@
                    
                    </nav>
                </div>
-               <div class="content module">
+               <div class="content miscellaneous-functions">
                    <div class="content-data">
 
 
 
+
+
+
+
+
+
+
+
 <ol class="breadcrumb">
-  <li>Modules</li>
-  <li>SigPlotComponentsModule</li>
+  <li>Miscellaneous - Functions</li>
 </ol>
 
+<section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#defaultLineOptions">defaultLineOptions</a>
+                        </li>
+                        <li>
+                            <a href="#defaultRasterOptions">defaultRasterOptions</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
-<ul class="nav nav-tabs" role="tablist">
-    <li class="active">
-        <a href="#info" id="info-tab" role="tab" data-toggle="tab" data-link="info">Info</a>
-    </li>
-
-
-    <li>
-        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-    </li>
-</ul>
-
-<div class="tab-content">
-    <div class="tab-pane fade active in" id="info">
-
-        <p class="comment">
-            <h3>File</h3>
-        </p>
-        <p class="comment">
-            <code>src/index.ts</code>
-        </p>
-
-            <p class="comment">
-                <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>The SigPlotComponentsModule contains components and utilities for 
-instantiating SigPlot within Angular components.</p>
-
-            </p>
-
-        <div class="container-fluid module">
-            <div class="row">
-            </div>
-        </div>
-    </div>
-
-
-    <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-
-import { CHILD_MODULES } from &#x27;./modules&#x27;;
-
-export * from &#x27;./common/common.module&#x27;;
-export * from &#x27;./line/line-component.module&#x27;;
-export * from &#x27;./raster/raster-component.module&#x27;;
-
-/**
- * The SigPlotComponentsModule contains components and utilities for 
- * instantiating SigPlot within Angular components.
- */
-@NgModule({
-    imports: CHILD_MODULES,
-    exports: CHILD_MODULES
-})
-export class SigPlotComponentsModule {}
-</code></pre>
-    </div>
-</div>
-
-
-
-
-
-
-
-
+    <h3>src/line/line-options.ts</h3>
+    <section>
+        <h3></h3>        <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="defaultLineOptions"></a>
+                            <span class="name"><b> defaultLineOptions</b><a href="#defaultLineOptions"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>defaultLineOptions()</code>
+                        </td>
+                    </tr>
+    
+    
+    
+                </tbody>
+            </table>
+    </section>
+    <h3>src/raster/raster-options.ts</h3>
+    <section>
+        <h3></h3>        <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="defaultRasterOptions"></a>
+                            <span class="name"><b> defaultRasterOptions</b><a href="#defaultRasterOptions"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>defaultRasterOptions()</code>
+                        </td>
+                    </tr>
+    
+    
+    
+                </tbody>
+            </table>
+    </section>
 
 
                    </div><div class="search-results">
