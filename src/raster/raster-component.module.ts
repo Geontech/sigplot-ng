@@ -5,6 +5,7 @@
 import { NgModule } from '@angular/core';
 import { RasterComponent } from './raster.component';
 
+export { RASTER_PLOT_OPTIONS, defaultRasterOptions } from './raster-options';
 /**
  * RasterComponentModule
  */

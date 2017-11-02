@@ -5,16 +5,20 @@
  * Example Line Plot component
  */
 
-import { Component, Input, Renderer2, ElementRef } from '@angular/core';
+import {
+    Component,
+    Input,
+    Renderer2,
+    ElementRef,
+    Optional,
+    Inject
+} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
 import {
-    AxisSettings,
-    IPlotColors,
     ConstructorOptions,
     LinePlot,
-    Units,
     LinePlotData
 } from 'sigplot-ts';
 
@@ -26,6 +30,7 @@ import {
 
 import { HighlightCommand } from './highlight-command';
 import { HighlightAction } from './highlight-action.enum';
+import { defaultLineOptions, LINE_PLOT_OPTIONS } from './line-options';
 
 /**
  * The LineComponent implements the LinePlot and exposes a number of 
@@ -53,41 +58,21 @@ export class LineComponent extends BaseSigPlotComponent<LinePlot> {
         }
     }
 
-    /**
-     * Toggle for showing and hiding the legend panel without touching the
-     * on-screen button.
-     */
-    @Input() set showLegend(legend: boolean) {
-        if (this.plot === undefined) {
-            return;
-        }
-        this.plot.settings.legend = legend;
-        this.plot.checkSettings();
-    }
-
     /** Subscription for the highlight command interface */
     private _highlightSub: Subscription;
 
     /**
      * @constructor
-     * @param _renderer The Angular Renderer2 service for editing the DOM.
-     * @param _el The Angular element reference of this component.
+     * @param renderer The Angular Renderer2 service for editing the DOM.
+     * @param el The Angular element reference of this component.
      */
-    constructor(protected _renderer: Renderer2, protected _el: ElementRef) {
-        super(_renderer, _el);
-        /**
-         * Setup the initial options for the line plot.
-         * See comments for what these flags 'do' for a type 1000 plot, as they
-         * differ from a type 2000.
-         */
-        const options = new ConstructorOptions();
-        options.pan = true;          // 1.\   Show specs w/o glitching or 
-        options.specs = true;        // 2. -> disappearing, provide legend
-        options.show_readout = true; // 3./   toggle button.
-        options.grid = true;         // Show the grid
-        options.legend = true;       // Show legend initially
-        options.show_x_axis = true;  // X Label in title region
-        options.show_y_axis = true;  // Y Label in title region
+    constructor(
+        renderer: Renderer2,
+        el: ElementRef,
+        @Optional() @Inject(LINE_PLOT_OPTIONS) options: ConstructorOptions
+    ) {
+        super(renderer, el);
+        options = options || defaultLineOptions();
         this.plot = new LinePlot(this.plotRef, options);
     }
 

@@ -3,18 +3,21 @@
  * Company: Geon Technologies, LLC
  */
 
-import { Component, Input, Renderer2, ElementRef } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
+import {
+    Component,
+    Input,
+    Renderer2,
+    ElementRef,
+    Optional,
+    Inject
+} from '@angular/core';
 
 import {
-    AxisSettings,
     IColorMap,
     ConstructorOptions,
     RasterPlot,
     RasterPlotData,
-    Mc,
-    Units
+    Mc
 } from 'sigplot-ts';
 
 import {
@@ -22,6 +25,8 @@ import {
     BASE_SIG_PLOT_COMPONENT_STYLES,
     BASE_SIG_PLOT_COMPONENT_TEMPLATE
 } from '../common/common.module';
+
+import { defaultRasterOptions, RASTER_PLOT_OPTIONS } from './raster-options';
 
 /**
  * The RasterComponent implements the RasterPlot controller by extending
@@ -48,34 +53,13 @@ export class RasterComponent extends BaseSigPlotComponent<RasterPlot> {
         this.plot.checkSettings();
     }
 
-    /**
-     * Configures the Y-Axis' settings
-     */
-    @Input() set yAxisSettings(ay: AxisSettings) {
-        if (this.plot === undefined) {
-            return;
-        }
-        this.plot.settings.yinv = ay.inv;
-        this.plot.settings.ymax = ay.max;
-        this.plot.settings.ymin = ay.min;
-        this.plot.settings.autoy = ay.autoScale;
-        this.plot.checkSettings();
-    }
-
-    constructor(protected _renderer: Renderer2, protected _el: ElementRef) {
-        super(_renderer, _el);
-        /**
-         * Setup the initial options for a (falling) raster plot.
-         * See comments for what these flags 'do' for a type 2000 plot, as they
-         * differ from type 1000.
-         */
-        let options = new ConstructorOptions();
-        // Provides area for and enables x, y labels, axes w/ ticks, etc.
-        options.specs = true;
-        // Shows scroll bars, specs panel, colorbar, legend button
-        options.pan = true;
-        // Show legend initially with signal name.
-        options.legend = true;
+    constructor(
+        renderer: Renderer2,
+        el: ElementRef,
+        @Optional() @Inject(RASTER_PLOT_OPTIONS) options: ConstructorOptions
+    ) {
+        super(renderer, el);
+        options = options || defaultRasterOptions();
         this.plot = new RasterPlot(this.plotRef, options);
     }
 
