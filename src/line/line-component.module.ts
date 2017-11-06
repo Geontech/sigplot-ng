@@ -5,6 +5,7 @@
 import { NgModule } from '@angular/core';
 import { LineComponent } from './line.component';
 
+export { LineComponent } from './line.component';
 export { HighlightAction } from './highlight-action.enum';
 export { HighlightCommand } from './highlight-command';
 export { LINE_PLOT_OPTIONS, defaultLineOptions } from './line-options';

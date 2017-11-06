@@ -106,7 +106,7 @@ export class BaseSigPlotComponent<T extends BasePlot>
         protected _el: ElementRef;
 
         /** Data subscription */
-        private _dataSub: Subscription;
+        protected _dataSub: Subscription;
 
         constructor(renderer: Renderer2, el: ElementRef) {
             this._renderer = renderer;
@@ -155,7 +155,7 @@ export class BaseSigPlotComponent<T extends BasePlot>
         /**
          * Unsubscribe from the data subscription to avoid possible memory leaks.
          */
-        private clearDataSubscription() {
+        protected clearDataSubscription() {
             if (this._dataSub !== undefined) {
                 this._dataSub.unsubscribe();
                 this._dataSub = undefined;
