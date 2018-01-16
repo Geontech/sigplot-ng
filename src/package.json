@@ -21,9 +21,9 @@
   "jsnext:main": "sigplot-ng.js",
   "typings": "sigplot-ng.d.ts",
   "peerDependencies": {
-    "@angular/core": "^4.0.0",
-    "rxjs": "^5.1.0",
+    "@angular/core": "^5.0.0",
+    "rxjs": "^5.5.2",
     "sigplot-ts": "^0.2.4",
-    "zone.js": "^0.8.4"
+    "zone.js": "^0.8.14"
   }
 }

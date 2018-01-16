@@ -6,7 +6,10 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   del = require('del'),
   runSequence = require('run-sequence'),
-  inlineResources = require('./tools/gulp/inline-resources');
+  inlineResources = require('./tools/gulp/inline-resources'),
+  syncJson = require('sync-json'),
+  readJsonSync = require('read-json-sync'),
+  util = require('util');
 
 const rootFolder = path.join(__dirname);
 const srcFolder = path.join(rootFolder, 'src');
@@ -47,24 +50,24 @@ gulp.task('inline-resources', function () {
 /**
  * 4. Run the Angular compiler, ngc, on the /.tmp folder. This will output all
  *    compiled modules to the /build folder.
+ *
+ *    As of Angular 5, ngc accepts an array and no longer returns a promise.
  */
 gulp.task('ngc', function () {
-  return ngc({
-    project: `${tmpFolder}/tsconfig.es5.json`
-  })
-    .then((exitCode) => {
-      if (exitCode === 1) {
-        // This error is caught in the 'compile' task by the runSequence method callback
-        // so that when ngc fails to compile, the whole compile process stops running
-        throw new Error('ngc compilation failed');
-      }
-    });
+  ngc([ '--project', `${tmpFolder}/tsconfig.es5.json` ]);
+  return Promise.resolve()
 });
 
 /**
  * 5. Run rollup inside the /build folder to generate our Flat ES module and place the
  *    generated file into the /dist folder
  */
+const externalDeps = [
+  '@angular/core',
+  '@angular/common',
+  'rxjs/Observable',
+  'sigplot-ts'
+];
 gulp.task('rollup:fesm', function () {
   return gulp.src(`${buildFolder}/**/*.js`)
   // transform the files here.
@@ -82,10 +85,7 @@ gulp.task('rollup:fesm', function () {
 
       // A list of IDs of modules that should remain external to the bundle
       // See "external" in https://rollupjs.org/#core-functionality
-      external: [
-        '@angular/core',
-        '@angular/common'
-      ],
+      external: externalDeps,
 
       // Format of generated bundle
       // See "format" in https://rollupjs.org/#core-functionality
@@ -115,10 +115,7 @@ gulp.task('rollup:umd', function () {
 
       // A list of IDs of modules that should remain external to the bundle
       // See "external" in https://rollupjs.org/#core-functionality
-      external: [
-        '@angular/core',
-        '@angular/common'
-      ],
+      external: externalDeps,
 
       // Format of generated bundle
       // See "format" in https://rollupjs.org/#core-functionality
@@ -153,6 +150,47 @@ gulp.task('copy:build', function () {
     .pipe(gulp.dest(distFolder));
 });
 
+function syncJsonCallback(error) {
+  if (error) {
+    util.error('Error in sync-json: ' + error);
+  }
+}
+
+/**
+ * 7.1 The "Patch" sequential task
+ */
+gulp.task('patch', function(done) {
+  runSequence('patch:version', 'patch:manifest', done);
+});
+
+/**
+ * 7.2 Patch version from the package.json to the library package.json
+ */
+gulp.task('patch:version', function(done) {
+  syncJson('package.json',`${srcFolder}/package.json`, ['version'], syncJsonCallback, done);
+});
+
+/**
+ * 7.3 Patch other fields from the package.json to the library package.json
+ * to synchronize things like devDependencies that are runtime dependencies.
+ */
+const rootPkgJson = readJsonSync(`${rootFolder}/package.json`);
+gulp.task('patch:manifest', function (done) {
+  let copyFields = {
+    'author':       rootPkgJson.author,
+    'license':      rootPkgJson.license,
+    'description':  rootPkgJson.description,
+    'keywords':     rootPkgJson.keywords,
+    'peerDependencies': {
+      '@angular/core': rootPkgJson.devDependencies['@angular/core'],
+      'rxjs':          rootPkgJson.devDependencies['rxjs'],
+      'sigplot-ts':    rootPkgJson.devDependencies['sigplot-ts'],
+      'zone.js':       rootPkgJson.devDependencies['zone.js']
+    }
+  };
+  syncJson(copyFields, `${srcFolder}/package.json`, syncJsonCallback, done);
+});
+
 /**
  * 8. Copy package.json from /src to /dist
  */
@@ -162,27 +200,14 @@ gulp.task('copy:manifest', function () {
 });
 
 /**
- * 9.1 Copy README.md from / to /dist
+ * 9. Copy README.md, license, etc. from / to /dist
  */
-gulp.task('copy:readme', function () {
-  return gulp.src([path.join(rootFolder, 'README.md')])
-    .pipe(gulp.dest(distFolder));
-});
-
-/**
- * 9.2 Copy LICENSE from / to /dist
- */
-gulp.task('copy:license', function () {
-  return gulp.src([path.join(rootFolder, 'LICENSE')])
-    .pipe(gulp.dest(distFolder));
-});
-
-
-/**
- * 9.3 Copy COPYRIGHT from / to /dist
- */
-gulp.task('copy:copyright', function () {
-  return gulp.src([path.join(rootFolder, 'COPYRIGHT')])
+gulp.task('copy:meta', function () {
+  return gulp.src([
+      path.join(rootFolder, 'README.md'),
+      path.join(rootFolder, 'LICENSE'),
+      path.join(rootFolder, 'COPYRIGHT')
+    ])
     .pipe(gulp.dest(distFolder));
 });
 
@@ -210,9 +235,7 @@ gulp.task('compile', function () {
     'rollup:umd',
     'copy:build',
     'copy:manifest',
-    'copy:readme',
-    'copy:license',
-    'copy:copyright',
+    'copy:meta',
     'clean:build',
     'clean:tmp',
     function (err) {
@@ -233,8 +256,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('clean', ['clean:dist', 'clean:tmp', 'clean:build']);
-
-gulp.task('build', ['clean', 'compile']);
+gulp.task('build', ['clean', 'patch', 'compile']);
 gulp.task('build:watch', ['build', 'watch']);
 gulp.task('default', ['build:watch']);
 
