@@ -111,6 +111,7 @@
             
             
             
+            
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse"
                                 data-target="#xs-interfaces-links"
@@ -259,6 +260,7 @@
                    
                    
                    
+                   
                            <li class="chapter">
                                <div class="simple menu-toggler" data-toggle="collapse"
                                        data-target="#interfaces-links"
@@ -336,7 +338,7 @@
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
     <h3>File</h3>
 </p>
 <p class="comment">
@@ -384,7 +386,15 @@ the color map (cmap) and Y-Axis settings.</p>
             </tr>
 
 
+            <tr>
+                <td class="col-md-3">styles</td>
+                <td class="col-md-9"><code>BASE_SIG_PLOT_COMPONENT_STYLES</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">template</td>
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">BASE_SIG_PLOT_COMPONENT_TEMPLATE</code></pre></td>
+            </tr>
 
 
 
@@ -405,7 +415,7 @@ the color map (cmap) and Y-Axis settings.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                 <a href="#handleData">handleData</a>
+                                <a href="#handleData">handleData</a>
                             </li>
                         </ul>
                     </td>
@@ -433,7 +443,7 @@ the color map (cmap) and Y-Axis settings.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                 <a href="#cmap">cmap</a>
+                                <a href="#cmap">cmap</a>
                             </li>
                         </ul>
                     </td>
@@ -448,7 +458,7 @@ the color map (cmap) and Y-Axis settings.</p>
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(renderer: Renderer2, el: ElementRef, options: ConstructorOptions)</code>
+                            <code>constructor(renderer: <a href="https://angular.io/api/core/Renderer2" target="_blank">Renderer2</a>, el: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, options: ConstructorOptions)</code>
                         </td>
                     </tr>
                             <tr>
@@ -474,7 +484,7 @@ the color map (cmap) and Y-Axis settings.</p>
                                                     <tr>
                                                       <td>renderer</td>
                                                       <td>
-                                                                <code>Renderer2</code>
+                                                                <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
                                                       </td>
                                                       <td>
                                                       </td>
@@ -483,7 +493,7 @@ the color map (cmap) and Y-Axis settings.</p>
                                                     <tr>
                                                       <td>el</td>
                                                       <td>
-                                                                <code>ElementRef</code>
+                                                                <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
                                                       </td>
                                                       <td>
                                                       </td>
@@ -545,7 +555,12 @@ color map, or your own using the IColorMap interface.</p>
                     <tr>
                         <td class="col-md-4">
                             <a name="handleData"></a>
-                            <span class="name"><b> handleData</b><a href="#handleData"><span class="fa fa-link"></span></a></span>
+                            <span class="name">
+                                <b>
+                                handleData
+                                </b>
+                                <a href="#handleData"><span class="fa fa-link"></span></a>
+                            </span>
                         </td>
                     </tr>
                     <tr>
@@ -672,7 +687,7 @@ color map, or your own using the IColorMap interface.</p>
 </div>
 
 
-    <div class="tab-pane fade tab-source-code" id="source">
+    <div class="tab-pane fade tab-source-code" id="c-source">
         <pre class="line-numbers"><code class="language-typescript">import {
     Component,
     Input,
@@ -749,7 +764,7 @@ export class RasterComponent extends BaseSigPlotComponent&lt;RasterPlot&gt; {
     </div>
 
 
-    <div class="tab-pane fade" id="tree">
+    <div class="tab-pane fade" id="c-tree">
         <div id="tree-container"></div>
         <div class="tree-legend">
             <div class="title">
@@ -772,12 +787,13 @@ export class RasterComponent extends BaseSigPlotComponent&lt;RasterPlot&gt; {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div></div>'
+        var COMPONENT_TEMPLATE = '<div>BASE_SIG_PLOT_COMPONENT_TEMPLATE</div>'
     var COMPONENTS = [{'name': 'BaseSigPlotComponent', 'selector': ''},{'name': 'LineComponent', 'selector': 'sigplot-line'},{'name': 'RasterComponent', 'selector': 'sigplot-raster'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'RasterComponent'};
 </script>
 <script src="../js/tree.js"></script>
+
 
 
 

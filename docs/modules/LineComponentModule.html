@@ -111,6 +111,7 @@
             
             
             
+            
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse"
                                 data-target="#xs-interfaces-links"
@@ -255,6 +256,7 @@
                                        </li>
                                </ul>
                            </li>
+                   
                    
                    
                    
@@ -412,7 +414,7 @@
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="info">
+    <div class="tab-pane fade active in" id="c-info">
 
         <p class="comment">
             <h3>File</h3>
@@ -453,10 +455,11 @@ for drawing line plots containing potentially multiple lines.</p>
     </div>
 
 
-    <div class="tab-pane fade tab-source-code" id="source">
+    <div class="tab-pane fade tab-source-code" id="c-source">
         <pre class="line-numbers"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { LineComponent } from &#x27;./line.component&#x27;;
 
+export { LineComponent } from &#x27;./line.component&#x27;;
 export { HighlightAction } from &#x27;./highlight-action.enum&#x27;;
 export { HighlightCommand } from &#x27;./highlight-command&#x27;;
 export { LINE_PLOT_OPTIONS, defaultLineOptions } from &#x27;./line-options&#x27;;
@@ -464,7 +467,6 @@ export { LINE_PLOT_OPTIONS, defaultLineOptions } from &#x27;./line-options&#x27;
 /**
  * This module provides the Line Component and helper interfaces, enums,
  * for drawing line plots containing potentially multiple lines.
- * @class
  */
 @NgModule({
     declarations: [ LineComponent ],
@@ -474,6 +476,7 @@ export class LineComponentModule {}
 </code></pre>
     </div>
 </div>
+
 
 
 
