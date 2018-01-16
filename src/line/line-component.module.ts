@@ -13,7 +13,6 @@ export { LINE_PLOT_OPTIONS, defaultLineOptions } from './line-options';
 /**
  * This module provides the Line Component and helper interfaces, enums,
  * for drawing line plots containing potentially multiple lines.
- * @class
  */
 @NgModule({
     declarations: [ LineComponent ],

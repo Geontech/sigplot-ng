@@ -10,7 +10,6 @@ import { HighlightAction } from './highlight-action.enum';
 /**
  * The HighlightCommand interface allows for dynamically highlighting sections 
  * of a line in the LinePlot.
- * @interface
  */
 export interface HighlightCommand {
     /** The unique ID for the signal that was pushed to the plot */

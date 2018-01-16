@@ -22,7 +22,6 @@ export const BASE_SIG_PLOT_COMPONENT_TEMPLATE = `<!-- SigPlot -->`;
 /**
  * The BaseSigPlot Component provides a basic class with interfaces
  * for data ingress, foreground/background color control, and x-Axis settings.
- * @class 
  */
 @Component({
     template: BASE_SIG_PLOT_COMPONENT_TEMPLATE,

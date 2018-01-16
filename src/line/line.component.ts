@@ -36,7 +36,6 @@ import { defaultLineOptions, LINE_PLOT_OPTIONS } from './line-options';
  * The LineComponent implements the LinePlot and exposes a number of 
  * observable interfaces for pushing data and settings changes into the 
  * LinePlot.  The plot supports multi-line plotting with legend.
- * @class
  */
 @Component({
     selector: 'sigplot-line',
@@ -62,7 +61,6 @@ export class LineComponent extends BaseSigPlotComponent<LinePlot> {
     private _highlightSub: Subscription;
 
     /**
-     * @constructor
      * @param renderer The Angular Renderer2 service for editing the DOM.
      * @param el The Angular element reference of this component.
      */
